@@ -39,6 +39,12 @@
                             <span>Dashboard</span>
                         </a>
                     </li>
+                    <li class="{{ Request::is('admin/tag*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.tag.index') }}">
+                            <i class="material-icons">tag</i>
+                            <span>Tag List</span>
+                        </a>
+                    </li>
                     @elseif(Request::is('author*'))
                     <li class="{{ Request::is('author/dashboard') ? 'active' : '' }}">
                         <a href="{{ route('author.dashboard') }}">
@@ -53,7 +59,7 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2016 - 2017 <a href="javascript:void(0);">Blog system in laravel</a>.
+                    &copy; {{ date('Y-m-d') }} <a href="javascript:void(0);">Blog system in laravel</a>.
                 </div>
                 <div class="version">
                     <b>Version: </b> 1.0.5
