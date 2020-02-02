@@ -5,7 +5,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>FORM EXAMPLES</h2>
+            <h2>Edit Tag</h2>
         </div>
         <!-- Vertical Layout | With Floating Label -->
         <div class="row clearfix">
@@ -13,7 +13,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                         Add New Tag
+                         Edit Tag
                         </h2>
                         <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
@@ -29,16 +29,17 @@
                         </ul>
                     </div>
                     <div class="body">
-                            <form action="{{ route('admin.tag.store') }}" method="post">
+                            <form action="{{ route('admin.tag.update', $tag->id) }}" method="post">
                                 @csrf
+                                @method('PUT')
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" id="tag_name" name="tag_name" class="form-control">
+                                        <input type="text" id="tag_name" name="tag_name" value="{{ $tag->name }}" class="form-control">
                                         <label class="form-label">Name</label>
                                     </div>
                                 </div>
                                 <a href="{{ route('admin.tag.index') }}" class="btn btn-danger m-t-15 waves-effect"> Back Tag</a>
-                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">Create Tag</button>
+                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">Edit Tag</button>
                             </form>
                         </div>
                 </div>
